@@ -1,0 +1,14 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'LDZFFormKit_Example' do
+  pod 'LDZFFormKit', :path => '../'
+  pod 'LDZFMobileFramework'
+  pod 'LDZFAlertDialog'
+  target 'LDZFFormKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
