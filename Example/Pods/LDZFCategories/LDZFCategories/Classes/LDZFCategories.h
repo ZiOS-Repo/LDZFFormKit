@@ -8,37 +8,35 @@
 #ifndef LDZFCategories_h
 #define LDZFCategories_h
 
-#import <JXCategoryKit/JXCategoryKit.h>
-
-
-
-//CALayer
+//QuartzCore
 #import "CALayer+SetRect.h"
 #import "CALayer+Animation.h"
-//CAShapeLayer
-#import "CAShapeLayer+CornerRadius.h"
-//NSBundle
-#import "NSBundle+AssociatedBundle.h"
-//NSString
+#import "CAShapeLayer+LDZF.h"
+
+//Foundation
 #import "NSString+Categorys.h"
-//UIAlertController
-#import "UIAlertController+Constructor.h"
-//UIButton
+#import "NSBundle+LDZFPodBundle.h"
+#import "NSArray+LDZFSafe.h"
+#import "NSArray+LDZFGeneral.h"
+#import "NSMutableArray+LDZFSafe.h"
+#import "NSMutableArray+LDZFGeneral.h"
+
+//UIKit
 #import "UIButton+Categories.h"
-//UIImage
-#import "UIImage+IUColor.h"
-#import "UIImage+IURotate.h"
-#import "UIImage+IUSubImage.h"
-//UILabel
-#import "UILabel+SizeToFit.h"
-//UITextField
-#import "UITextField+UsefulMethod.h"
-//UIView
+#import "UIDevice+LDZFGeneral.h"
+#import "UIImage+LDZFClip.h"
+#import "UIImage+LDZFEffect.h"
+#import "UIImage+LDZFGeneral.h"
+#import "UIImage+LDZFGenerate.h"
+#import "UIImage+LDZFQRCode.h"
+#import "UILabel+LDZF.h"
+#import "UIScrollView+LDZF.h"
 #import "UIView+Categorys.h"
-//UIViewController
-#import "UIViewController+Status.h"
+#import "UIViewController+LDZFAlert.h"
+#import "UIViewController+LDZFGeneral.h"
 
-
-#import "PHAsset+IU.h"
+//UnSure
+#import "PHAsset+LDZF.h"
+#import "NSObject+LDZF.h"
 
 #endif /* LDZFCategories_h */
