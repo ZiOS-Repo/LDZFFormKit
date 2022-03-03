@@ -14,13 +14,7 @@
 <
 UITableViewDelegate,
 UITableViewDataSource,
-FormBaseCellDelegate,
-FormBtnsCellDelegate,
-FormPlusReduceCellDelegate,
-FormSliderCellDelegate,
-FormSwitchCellDelegate,
-FormTextfiledCellDelegate,
-FormTextViewCellDelegate,
+FormCellDelegate,
 AlertBaseDialogDelegate
 >
 @property (nonatomic, strong) CRJViewModel *viewModel;
@@ -31,9 +25,7 @@ AlertBaseDialogDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"定损详情";
     [self bindViewModel];
-    self.appBar.backgroundColor = [UIColor redColor];
 }
     
 #pragma mark - bindViewModel
@@ -58,39 +50,15 @@ AlertBaseDialogDelegate
     FormBaseSection *formSection = [self.viewModel.dataArray objectAtIndex:indexPath.section];
     FormBaseCellModel *formCellData = [formSection.cellDatas objectAtIndex:indexPath.row];
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:formCellData.Identifier];
+    FormBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:formCellData.Identifier];
     if (!cell) {
         cell = [[NSClassFromString(formCellData.cellClass) alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:formCellData.Identifier];
     }
-    
-    if ([cell isKindOfClass:FormBaseCell.class]) {
-        ((FormBaseCell *)cell).delegate = self;
-        if ([cell isKindOfClass:FormBtnsCell.class]) {
-            ((FormBtnsCell *)cell).btnsCellDelegate = self;
-        }
-        if ([cell isKindOfClass:FormPlusReduceCell.class]) {
-            ((FormPlusReduceCell *)cell).plusReduceCellDelegate = self;
-        }
-        if ([cell isKindOfClass:FormSliderCell.class]) {
-            ((FormSliderCell *)cell).sliderCellDelegate = self;
-        }
-        if ([cell isKindOfClass:FormSwitchCell.class]) {
-            ((FormSwitchCell *)cell).switchCellDelegate = self;
-        }
-        if ([cell isKindOfClass:FormTextfiledCell.class]) {
-            ((FormTextfiledCell *)cell).inputCellDelegate = self;
-        }
-        if ([cell isKindOfClass:FormTextViewCell.class]) {
-            ((FormTextViewCell *)cell).textViewCellDelegate = self;
-        }
-        if ([cell isKindOfClass:FormBaseCell.class]) {
-            [((FormBaseCell *)cell) loadContent];
-        }
-        ((FormBaseCell *)cell).indexPath = indexPath;
-        ((FormBaseCell *)cell).tableView = tableView;
-        ((FormBaseCell *)cell).data = formCellData;
-        [((FormBaseCell *)cell) loadContent];
-    }
+    cell.formDelegate = self;
+    cell.indexPath = indexPath;
+    cell.tableView = tableView;
+    cell.data = formCellData;
+    [cell loadContent];
     return cell;
 }
 
@@ -149,7 +117,7 @@ AlertBaseDialogDelegate
     return formSection.footerInfo.hfHeight;
 }
 
-#pragma mark - FormBaseCellDelegate
+#pragma mark - FormCellDelegate
 - (void)formCell:(FormBaseCell *)cell event:(id)event {
     AlertDateDialog *dialog = AlertDateDialog.build;
     dialog.withInfo(@"请选择-开始时间");
@@ -158,18 +126,18 @@ AlertBaseDialogDelegate
     [self presentViewController:dialog animated:NO completion:nil];
 }
 #pragma mark - FormBtnsCellDelegate
-- (void)btnsCellOfValueChanged:(FormBtnsCell *)cell {
+- (void)formBtnsCellOfValueChanged:(FormBtnsCell *)cell bean:(FormBtnsBean *)bean {
     
 }
 #pragma mark - FormPlusReduceCellDelegate
-- (void)plusReduceCell:(FormPlusReduceCell *)cell clickPlusBtn:(UIButton *)sender {}
-- (void)plusReduceCell:(FormPlusReduceCell *)cell clickReduceBtn:(UIButton *)sender {}
-- (void)plusReduceCell:(FormPlusReduceCell *)cell textFieldDidChange:(UITextField *)textField {
+- (void)plusReduceCell:(FormPlusReduceCell *)cell bean:(FormPlusReduceBean *)bean clickPlusBtn:(UIButton *)sender {}
+- (void)plusReduceCell:(FormPlusReduceCell *)cell bean:(FormPlusReduceBean *)bean clickReduceBtn:(UIButton *)sender {}
+- (void)plusReduceCell:(FormPlusReduceCell *)cell bean:(FormPlusReduceBean *)bean textFieldDidChange:(UITextField *)textField {
     
 }
 #pragma mark - FormSliderCellDelegate
-- (void)sliderCell:(FormSliderCell *)cell clickAreaBtn:(UIButton *)sender {
-    FormSliderCellModel *dataItem = cell.data;
+- (void)sliderCell:(FormSliderCell *)cell bean:(FormSliderBean *)bean clickAreaBtn:(UIButton *)sender {
+    FormSliderBean *dataItem = cell.data;
     dataItem.expend = !dataItem.expend;
     if (cell.indexPath) {
         [UIView performWithoutAnimation:^{
@@ -178,8 +146,8 @@ AlertBaseDialogDelegate
     }
 }
 
-- (void)sliderCell:(FormSliderCell *)cell sliderValueDidChanged:(UISlider *)sender {
-    FormSliderCellModel *dataItem = cell.data;
+- (void)sliderCell:(FormSliderCell *)cell bean:(FormSliderBean *)bean sliderValueDidChanged:(UISlider *)sender {
+    FormSliderBean *dataItem = cell.data;
     ///取整
     int discreteValue = roundl([sender value]); // Rounds float to an integer
     discreteValue = discreteValue / 10 * 10;
@@ -189,22 +157,23 @@ AlertBaseDialogDelegate
     cell.valLable.text = [NSString stringWithFormat:@"%.f%%",dataItem.value];
 }
 
-- (void)sliderCell:(FormSliderCell *)cell sliderEnd:(UISlider *)sender {
+- (void)sliderCell:(FormSliderCell *)cell bean:(FormSliderBean *)bean sliderEnd:(UISlider *)sender {
     NSLog(@"停止");
 }
 #pragma mark - FormSwitchCellDelegate
-- (void)switchCellOfValueChanged:(FormSwitchCell *)cell {
-    FormSwitchCellModel *dataItem = cell.data;
-    dataItem.on = cell.valSwitch.isOn;
+- (void)switchCellOfValueChanged:(FormSwitchCell *)cell bean:(FormSwitchBean *)bean{
+
 }
+
 #pragma mark - FormTextfiledCellDelegate
 - (void)textfiledCell:(FormTextfiledCell *)cell textFieldDidChange:(UITextField *)textField {
-    FormTextfiledCellModel *dataItem = cell.data;
+    FormTextfiledBean *dataItem = cell.data;
     dataItem.val = textField.text;
 }
+
 #pragma mark - FormTextViewCellDelegate
 - (void)textViewCell:(FormTextViewCell *)cell textViewDidChange:(YYTextView *)textView {
-    FormTextViewCellModel *dataItem = cell.data;
+    FormTextViewBean *dataItem = cell.data;
     dataItem.val = textView.text;
 }
 
@@ -212,8 +181,8 @@ AlertBaseDialogDelegate
 #pragma mark - AlertBaseDialogDelegate
 - (void)baseDialog:(AlertBaseDialog *)dialog didSelectedItems:(NSArray *)items {
     if ([dialog.object isKindOfClass:FormBaseCellModel.class]) {
-        if ([dialog.object isKindOfClass:FormPickerCellModel.class]) {
-            FormPickerCellModel *formCellData = dialog.object;
+        if ([dialog.object isKindOfClass:FormPickerBean.class]) {
+            FormPickerBean *formCellData = dialog.object;
             formCellData.val = [NSString stringWithFormat:@"%@",items.firstObject];
             [self.recylerView reloadData];
         }

@@ -6,11 +6,8 @@
 //  Copyright © 2020 zhuyuhui434@gmail.com. All rights reserved.
 //
 
-#import "IUFormKitMacos.h"
-#import "UIView+Tnt.h"
-#import "Masonry/Masonry.h"
 #import <UIKit/UIKit.h>
-
+#import <Masonry/Masonry.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TntBaseHeaderFooterView : UITableViewHeaderFooterView

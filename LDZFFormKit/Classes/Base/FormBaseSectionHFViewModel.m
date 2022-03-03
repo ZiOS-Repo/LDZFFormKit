@@ -7,15 +7,14 @@
 //
 
 #import "FormBaseSectionHFViewModel.h"
-#import "IUFormKitMacos.h"
 @implementation FormBaseSectionHFViewModel
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         self.hfHeight = 0.1;
-        self.bodyPadding = kFormConfig.bodyPadding;
-        self.backgroundColor = FORM_COLOR_WITH_HEX(0xF7F7F7);
+        self.bodyPadding = FormManager.shared.bodyPadding;
+        self.backgroundColor = kHexColor(0xF7F7F7);
     }
     return self;
 }

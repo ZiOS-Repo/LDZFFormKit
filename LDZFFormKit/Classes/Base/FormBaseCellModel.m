@@ -7,7 +7,7 @@
 
 #import "FormBaseCellModel.h"
 #import "FormBaseCell.h"
-#import "FormConfig.h"
+#import "FormManager.h"
 @implementation FormBaseCellModel
 - (instancetype)init
 {
@@ -15,21 +15,24 @@
     if (self) {
         self.Identifier = [self defaultIdentifier];
         self.cellClass = [self defaultCellClass];
+        
+        self.cellWidth = SCREEN_WIDTH;
         //header
-        self.headerHeight = kFormConfig.headerHeight;
-        self.headerColor = kFormConfig.headerColor;
+        self.headerHeight = FormManager.shared.headerHeight;
+        self.headerColor = FormManager.shared.headerColor;
         //footer
-        self.footerHeight = kFormConfig.footerHeight;;
-        self.footerColor = kFormConfig.footerColor;
+        self.footerHeight = FormManager.shared.footerHeight;
+        self.footerColor = FormManager.shared.footerColor;
         //body
-        self.bodyHeight = kFormConfig.bodyHeight;
-        self.bodyColor = kFormConfig.bodyColor;
-        self.bodyPadding = kFormConfig.bodyPadding;
+        self.bodyHeight = FormManager.shared.bodyHeight;
+        self.bodyColor = FormManager.shared.bodyColor;
+        self.bodyPadding = FormManager.shared.bodyPadding;
         //separator
-        self.separatorHeight = kFormConfig.separatorHeight;
-        self.separatorColor = kFormConfig.separatorColor;
-        self.separatorMargin = kFormConfig.separatorMargin;
+        self.separatorHeight = FormManager.shared.separatorHeight;
+        self.separatorColor = FormManager.shared.separatorColor;
+        self.separatorMargin = FormManager.shared.separatorMargin;
         self.separatorHide = NO;
+
     }
     return self;
 }

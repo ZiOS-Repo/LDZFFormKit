@@ -14,6 +14,7 @@
 @implementation FormBaseCell
 
 - (void)buildSubview {
+    [super buildSubview];
     [self.contentView addSubview:self.headerView];
     [self.contentView addSubview:self.bodyView];
     [self.contentView addSubview:self.footerView];
@@ -25,29 +26,28 @@
 }
 
 - (void)loadContent {
-    if (kFormConfig.showDebugLine) {
+    if (![self.data isKindOfClass:[FormBaseCellModel class]]) return;
+    if (FormManager.shared.showDebugLine) {
         [self showDebugLine];
     }
     if (self.tableView) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     
-    if ([self.data isKindOfClass:[FormBaseCellModel class]]) {
-        self.dataItem = self.data;
-        
-        self.headerView.backgroundColor = self.dataItem.headerColor;
-        self.bodyView.backgroundColor = self.dataItem.bodyColor;
-        self.footerView.backgroundColor = self.dataItem.footerColor;
-        self.separator.backgroundColor = self.dataItem.separatorColor;
-        self.separator.hidden = self.dataItem.separatorHide;
-        
-        [self.separator mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.separator.superview).offset(self.dataItem.separatorMargin.left);
-            make.right.equalTo(self.separator.superview).offset(-self.dataItem.separatorMargin.right);
-            make.bottom.equalTo(self.separator.superview).offset(0);
-            make.height.mas_equalTo(self.dataItem.separatorHeight);
-        }];
-    }
+    self.dataItem = self.data;
+
+    self.headerView.backgroundColor = self.dataItem.headerColor;
+    self.bodyView.backgroundColor = self.dataItem.bodyColor;
+    self.footerView.backgroundColor = self.dataItem.footerColor;
+    self.separator.backgroundColor = self.dataItem.separatorColor;
+    self.separator.hidden = self.dataItem.separatorHide;
+    [self.separator mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.separator.superview).offset(self.dataItem.separatorMargin.left);
+        make.right.equalTo(self.separator.superview).offset(-self.dataItem.separatorMargin.right);
+        make.bottom.equalTo(self.separator.superview).offset(0);
+        make.height.mas_equalTo(self.dataItem.separatorHeight);
+    }];
+
 }
 
 - (void)layoutSubviews {
@@ -58,6 +58,7 @@
 }
 
 - (void)showDebugLine {}
+
 #pragma mark - 懒加载
 - (UIView *)headerView {
     if (!_headerView) {

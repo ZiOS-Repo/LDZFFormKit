@@ -16,18 +16,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 ///
-@property(nonatomic, strong) FormAttrCellModel *FormAttrCellModel_;
-@property(nonatomic, strong) FormBtnsCellModel *FormBtnsCellModel_;
-@property(nonatomic, strong) FormCenterBtnCellModel *FormCenterBtnCellModel_;
-@property(nonatomic, strong) FormCommonCellModel *FormCommonCellModel_;
-@property(nonatomic, strong) FormKVCellModel *FormKVCellModel_;
-@property(nonatomic, strong) FormKVMutiLineCellModel *FormKVMutiLineCellModel_;
-@property(nonatomic, strong) FormPickerCellModel *FormPickerCellModel_;
-@property(nonatomic, strong) FormPlusReduceCellModel *FormPlusReduceCellModel_;
-@property(nonatomic, strong) FormSliderCellModel *FormSliderCellModel_;
-@property(nonatomic, strong) FormSwitchCellModel *FormSwitchCellModel_;
-@property(nonatomic, strong) FormTextfiledCellModel *FormTextfiledCellModel_;
-@property(nonatomic, strong) FormTextViewCellModel *FormTextViewCellModel_;
+@property(nonatomic, strong) FormAttrBean *FormAttrCellModel_;
+@property(nonatomic, strong) FormBtnsBean *FormBtnsCellModel_;
+@property(nonatomic, strong) FormCenterBtnBean *FormCenterBtnCellModel_;
+@property(nonatomic, strong) FormCommonBean *FormCommonCellModel_;
+@property(nonatomic, strong) FormKVBean *FormKVCellModel_;
+@property(nonatomic, strong) FormKVMutiLineBean *FormKVMutiLineCellModel_;
+@property(nonatomic, strong) FormPickerBean *FormPickerCellModel_;
+@property(nonatomic, strong) FormPlusReduceBean *FormPlusReduceCellModel_;
+@property(nonatomic, strong) FormSliderBean *FormSliderCellModel_;
+@property(nonatomic, strong) FormSwitchBean *FormSwitchCellModel_;
+@property(nonatomic, strong) FormTextfiledBean *FormTextfiledCellModel_;
+@property(nonatomic, strong) FormTextViewBean *FormTextViewCellModel_;
 
 
 

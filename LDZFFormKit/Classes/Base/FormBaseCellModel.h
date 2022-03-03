@@ -6,30 +6,36 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FormConfig.h"
+#import <LDZFCommon/LDZFCommon.h>
+#import <LDZFCategories/LDZFCategories.h>
+#import "FormManager.h"
 NS_ASSUME_NONNULL_BEGIN
-
 @interface FormBaseCellModel : NSObject
+#pragma mark - 重用
 @property (nonatomic, strong) NSString *cellClass;
 @property (nonatomic, strong) NSString *Identifier; //cell重用标识符
-
-@property (nonatomic, assign) CGFloat cellHeight;     //总高度
-//header
+#pragma mark - header
 @property (nonatomic, assign) CGFloat headerHeight;
 @property (nonatomic, strong) UIColor *headerColor;
-//footer
+#pragma mark - footer
 @property (nonatomic, assign) CGFloat footerHeight;
 @property (nonatomic, strong) UIColor *footerColor;
-//body
+#pragma mark - body
 @property (nonatomic, assign) CGFloat bodyHeight;
 @property (nonatomic, strong) UIColor *bodyColor;
 @property (nonatomic, assign) UIEdgeInsets bodyPadding;
-//separator
+#pragma mark - separator
 @property (nonatomic, assign) CGFloat separatorHeight;
 @property (nonatomic, strong) UIColor *separatorColor;
 @property (nonatomic, assign) UIEdgeInsets separatorMargin;
 @property (nonatomic, assign) BOOL separatorHide;//default = NO
+#pragma mark - frame
+//cell 宽度 default is SCREEN_WIDTH
+@property (nonatomic, assign) CGFloat cellWidth;
+//cell 高度 default is 44.f
+@property (nonatomic, assign) CGFloat cellHeight;
 
+#pragma mark - data
 //数据
 @property (nonatomic, strong) id data;
 
