@@ -55,7 +55,7 @@
     if (![self.data isKindOfClass:[FormPickerBean class]]) return;
     self.dataItem = self.data;
     self.extrImgView.image = self.dataItem.extrImg;
-    if (kfStringIsEmpty(self.dataItem.val)) {
+    if (isStringEmptyOrNil(self.dataItem.val)) {
         self.valLable.text = self.dataItem.placeholder;
         self.valLable.textColor = self.dataItem.placeholderColor;
     } else {
@@ -92,7 +92,7 @@
 }
 
 - (void)clickTapAreaBtn:(UIButton *)sender {
-    [self.qmui_viewController.view endEditing:YES];
+    [self.qnm_viewController.view endEditing:YES];
     if ([self.formDelegate respondsToSelector:@selector(formCell:event:)]) {
         [self.formDelegate formCell:self event:nil];
     }

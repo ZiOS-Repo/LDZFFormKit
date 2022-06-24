@@ -42,7 +42,7 @@
 }
 
 - (void)clickTapAreaBtn:(UIButton *)sender {
-    [self.qmui_viewController.view endEditing:YES];
+    [self.qnm_viewController.view endEditing:YES];
     if ([self.formDelegate respondsToSelector:@selector(formCell:event:)]) {
         [self.formDelegate formCell:self event:nil];
     }

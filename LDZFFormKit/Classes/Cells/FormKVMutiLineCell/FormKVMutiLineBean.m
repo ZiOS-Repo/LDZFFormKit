@@ -34,14 +34,15 @@
     CGFloat attrValueH = 0;
     UILabel *lable = [[UILabel alloc] init];
     lable.numberOfLines = 0;
-    if (self.key && !kfStringIsEmpty(self.key.string)) {
+    
+    if (self.key && !isStringEmptyOrNil(self.key.string)) {
         lable.width = self.keyMaxWidth;
         lable.attributedText = self.key;
         [lable sizeToFit];
         attrKeyH = lable.height;
     }
     
-    if (self.val && !kfStringIsEmpty(self.val.string)) {
+    if (self.val && !isStringEmptyOrNil(self.val.string)) {
         lable.width = self.cellWidth - self.bodyPadding.left - self.bodyPadding.right - self.keyMaxWidth - self.hGap;
         lable.attributedText = self.val;
         [lable sizeToFit];

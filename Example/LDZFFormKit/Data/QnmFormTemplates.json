@@ -1,0 +1,222 @@
+{
+    "modules":[
+        {
+            "id":"",
+            "type":"KV",
+            "valueScheme": {
+                "type":"string",
+                "title":"类型：KV",
+            },
+            "uiScheme": {
+                "titleIN":{
+                    "color":"#FF66CCFF",
+                    "font":"18"
+                }
+            },
+        },
+        {
+            "id":"",
+            "type":"KV",
+            "valueScheme": {
+                "type":"string",
+                "title":"姓名",
+                "propertyName":"titleName",
+            },
+            "uiScheme": {
+
+            },
+        },
+        {
+            "id":"",
+            "type":"KV",
+            "valueScheme": {
+                "type":"string",
+                "title":"姓名",
+                "propertyName":"titleName",
+                "value":"张三",
+            },
+            "uiScheme": {
+
+            },
+        },
+        {
+            "id":"",
+            "type":"KV",
+            "valueScheme": {
+                "type":"string",
+                "title":"类型：PickerNormal",
+            },
+            "uiScheme": {
+                "titleIN":{
+                    "color":"#FF66CCFF",
+                    "font":"18"
+                }
+            },
+        },
+        {
+            "id":"",
+            "type":"PickerNormal",
+            "valueScheme": {
+                "type":"string",
+                "title":"姓名",
+                "propertyName":"titleName",
+                "placeholder":"请选择",
+            },
+            "uiScheme": {
+                "extrIconUrl":"arrow_up",
+                "extrIconSize":"{15,15}"
+            },
+        },
+        {
+            "id":"",
+            "type":"PickerNormal",
+            "valueScheme": {
+                "type":"string",
+                "title":"姓名",
+                "propertyName":"titleName",
+                "value":"阿罕默德*德易么",
+            },
+            "uiScheme": {
+
+            },
+        },
+        {
+            "id":"",
+            "type":"KV",
+            "valueScheme": {
+                "type":"string",
+                "title":"类型：Switch",
+            },
+            "uiScheme": {
+                "titleIN":{
+                    "color":"#FF66CCFF",
+                    "font":"18"
+                }
+            },
+        },
+        {
+            "id":"",
+            "type":"Switch",
+            "valueScheme": {
+                "type":"string",
+                "title":"是否打开：开",
+                "propertyName":"isOpean",
+                "value":"1",
+            },
+            "uiScheme": {
+
+            },
+        },
+        {
+            "id":"",
+            "type":"Switch",
+            "valueScheme": {
+                "type":"string",
+                "title":"是否打开：关",
+                "propertyName":"isOpean",
+                "value":"0",
+            },
+            "uiScheme": {
+
+            },
+        },
+        {
+            "id":"",
+            "type":"Switch",
+            "valueScheme": {
+                "type":"string",
+                "title":"是否打开-不可编辑",
+                "propertyName":"isOpean",
+                "value":"0",
+            },
+            "uiScheme": {
+                "editable":"0",
+            },
+        },
+        {
+            "id":"",
+            "type":"KV",
+            "valueScheme": {
+                "type":"string",
+                "title":"类型：Textfiled",
+            },
+            "uiScheme": {
+                "titleIN":{
+                    "color":"#FF66CCFF",
+                    "font":"18"
+                }
+            },
+        },
+        {
+            "id":"",
+            "type":"Textfiled",
+            "valueScheme": {
+                "type":"string",
+                "title":"家庭住址~可编辑",
+                "propertyName":"address",
+                "placeholder":"请输入",
+                "value":"",
+            },
+            "uiScheme": {
+
+            },
+        },
+        {
+            "id":"",
+            "type":"Textfiled",
+            "valueScheme": {
+                "type":"string",
+                "title":"家庭住址~不可编辑",
+                "propertyName":"address",
+                "placeholder":"请输入",
+                "value":"",
+            },
+            "uiScheme": {
+                "editable":"0"
+            },
+        },
+        {
+            "id":"",
+            "type":"KV",
+            "valueScheme": {
+                "type":"string",
+                "title":"类型：TextView",
+            },
+            "uiScheme": {
+                "titleIN":{
+                    "color":"#FF66CCFF",
+                    "font":"18"
+                }
+            },
+        },
+        {
+            "id":"",
+            "type":"TextView",
+            "valueScheme": {
+                "type":"string",
+                "title":"家庭住址~可编辑",
+                "propertyName":"address",
+                "placeholder":"请输入",
+                "value":"",
+            },
+            "uiScheme": {
+
+            },
+        },
+        {
+            "id":"",
+            "type":"TextView",
+            "valueScheme": {
+                "type":"string",
+                "title":"家庭住址~不可编辑",
+                "propertyName":"address",
+                "placeholder":"请输入",
+                "value":"",
+            },
+            "uiScheme": {
+                "editable":"0"
+            },
+        },
+    ]
+}
+

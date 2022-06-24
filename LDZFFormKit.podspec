@@ -46,6 +46,7 @@ TODO: Add long description of the pod here.
   s.dependency 'LDZFBaseCell'
   s.dependency 'LDZFCategories'
   s.dependency 'YYText'
+  s.dependency 'YYModel'
   s.dependency 'Masonry'
   s.dependency 'IQKeyboardManager'
 end

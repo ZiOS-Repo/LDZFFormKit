@@ -23,6 +23,9 @@
 		7001CA84318714FFB44EF181 /* Pods_LDZFFormKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204E8D7AF8F2FD413FFA0DE5 /* Pods_LDZFFormKit_Tests.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		AF45BC1128647E190060B31C /* FormUIManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = AF45BC1028647E190060B31C /* FormUIManagement.m */; };
+		AF45BC1428647E3F0060B31C /* FormUIMAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF45BC1328647E3F0060B31C /* FormUIMAdapter.m */; };
+		AF45BC1728647FB60060B31C /* QnmFormTemplates.json in Resources */ = {isa = PBXBuildFile; fileRef = AF45BC1628647FB60060B31C /* QnmFormTemplates.json */; };
 		AFEDDB23272560E5000BD770 /* CRJViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEDDB21272560E5000BD770 /* CRJViewModel.m */; };
 		C13B6FC595F24D6EF346A090 /* Pods_LDZFFormKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01799CF77C10C589AF56E2F8 /* Pods_LDZFFormKit_Example.framework */; };
 /* End PBXBuildFile section */
@@ -65,11 +68,16 @@
 		9C037D370E7FC984BA925877 /* Pods-LDZFFormKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDZFFormKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LDZFFormKit_Tests/Pods-LDZFFormKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F7029A7C61973364B80FE37 /* Pods-LDZFFormKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDZFFormKit_Example.release.xcconfig"; path = "Target Support Files/Pods-LDZFFormKit_Example/Pods-LDZFFormKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A227FC2383E37A064725AB7F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		AF45BC0F28647E190060B31C /* FormUIManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormUIManagement.h; sourceTree = "<group>"; };
+		AF45BC1028647E190060B31C /* FormUIManagement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormUIManagement.m; sourceTree = "<group>"; };
+		AF45BC1228647E3F0060B31C /* FormUIMAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormUIMAdapter.h; sourceTree = "<group>"; };
+		AF45BC1328647E3F0060B31C /* FormUIMAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormUIMAdapter.m; sourceTree = "<group>"; };
+		AF45BC1628647FB60060B31C /* QnmFormTemplates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QnmFormTemplates.json; sourceTree = "<group>"; };
 		AFEDDB21272560E5000BD770 /* CRJViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRJViewModel.m; sourceTree = "<group>"; };
 		AFEDDB22272560E5000BD770 /* CRJViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRJViewModel.h; sourceTree = "<group>"; };
 		BCDB056462A387AC18113C31 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E82F1DF1A38729D961A8538E /* Pods-LDZFFormKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDZFFormKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-LDZFFormKit_Tests/Pods-LDZFFormKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		FBD046592BA4939210C5A479 /* LDZFFormKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LDZFFormKit.podspec; path = ../LDZFFormKit.podspec; sourceTree = "<group>"; };
+		FBD046592BA4939210C5A479 /* LDZFFormKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LDZFFormKit.podspec; path = ../LDZFFormKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +143,7 @@
 		6003F593195388D20070C39A /* Example for LDZFFormKit */ = {
 			isa = PBXGroup;
 			children = (
+				AF45BC1528647FB60060B31C /* Data */,
 				AFEDDB22272560E5000BD770 /* CRJViewModel.h */,
 				AFEDDB21272560E5000BD770 /* CRJViewModel.m */,
 				6003F59C195388D20070C39A /* IUAppDelegate.h */,
@@ -142,6 +151,10 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* IUViewController.h */,
 				6003F5A6195388D20070C39A /* IUViewController.m */,
+				AF45BC0F28647E190060B31C /* FormUIManagement.h */,
+				AF45BC1028647E190060B31C /* FormUIManagement.m */,
+				AF45BC1228647E3F0060B31C /* FormUIMAdapter.h */,
+				AF45BC1328647E3F0060B31C /* FormUIMAdapter.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -188,6 +201,14 @@
 				BCDB056462A387AC18113C31 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		AF45BC1528647FB60060B31C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				AF45BC1628647FB60060B31C /* QnmFormTemplates.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		D9B41413471B0E30B31F0191 /* Pods */ = {
@@ -253,7 +274,7 @@
 				ORGANIZATIONNAME = "zhuyuhui434@gmail.com";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = RM6SQ838XP;
+						DevelopmentTeam = HG6B48G9LT;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -287,6 +308,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				AF45BC1728647FB60060B31C /* QnmFormTemplates.json in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -332,38 +354,28 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LDZFFormKit_Example/Pods-LDZFFormKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFAlertDialog/LDZFAlertDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFBaseCell/LDZFBaseCell.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFCategories/LDZFCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFCommon/LDZFCommon.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFFormKit/LDZFFormKit.framework",
-				"${BUILT_PRODUCTS_DIR}/LDZFGeneralTools/LDZFGeneralTools.framework",
-				"${BUILT_PRODUCTS_DIR}/LDZFMobileFramework/LDZFMobileFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFPickerView/LDZFPickerView.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework",
-				"${BUILT_PRODUCTS_DIR}/RegExCategories/RegExCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFAlertDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFBaseCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFCommon.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFFormKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFGeneralTools.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFMobileFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFPickerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QMUIKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RegExCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,8 +413,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFEDDB23272560E5000BD770 /* CRJViewModel.m in Sources */,
+				AF45BC1428647E3F0060B31C /* FormUIMAdapter.m in Sources */,
 				6003F59E195388D20070C39A /* IUAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* IUViewController.m in Sources */,
+				AF45BC1128647E190060B31C /* FormUIManagement.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,12 +545,12 @@
 			baseConfigurationReference = 53C9AE224D14425CD235F93D /* Pods-LDZFFormKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = RM6SQ838XP;
+				DEVELOPMENT_TEAM = HG6B48G9LT;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LDZFFormKit/LDZFFormKit-Prefix.pch";
 				INFOPLIST_FILE = "LDZFFormKit/LDZFFormKit-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.LDZFCategories-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -548,12 +562,12 @@
 			baseConfigurationReference = 9F7029A7C61973364B80FE37 /* Pods-LDZFFormKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = RM6SQ838XP;
+				DEVELOPMENT_TEAM = HG6B48G9LT;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LDZFFormKit/LDZFFormKit-Prefix.pch";
 				INFOPLIST_FILE = "LDZFFormKit/LDZFFormKit-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.LDZFCategories-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;

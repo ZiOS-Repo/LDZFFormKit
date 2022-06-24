@@ -14,7 +14,7 @@
     if (self) {
         self.hfHeight = 0.1;
         self.bodyPadding = FormManager.shared.bodyPadding;
-        self.backgroundColor = kHexColor(0xF7F7F7);
+//        self.backgroundColor = kHexColor(0xF7F7F7);
     }
     return self;
 }
