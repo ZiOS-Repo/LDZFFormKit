@@ -1,19 +1,19 @@
 PODS:
   - IQKeyboardManager (6.5.9)
-  - LDZFAlertDialog (0.1.5):
-    - LDZFAlertDialog/BaseDialog (= 0.1.5)
-    - LDZFAlertDialog/DateDialog (= 0.1.5)
-    - LDZFAlertDialog/MultiChoiceDialog (= 0.1.5)
-    - LDZFAlertDialog/SingleChoiceDialog (= 0.1.5)
-  - LDZFAlertDialog/BaseDialog (0.1.5):
+  - LDZFAlertDialog (0.1.6):
+    - LDZFAlertDialog/BaseDialog (= 0.1.6)
+    - LDZFAlertDialog/DateDialog (= 0.1.6)
+    - LDZFAlertDialog/MultiChoiceDialog (= 0.1.6)
+    - LDZFAlertDialog/SingleChoiceDialog (= 0.1.6)
+  - LDZFAlertDialog/BaseDialog (0.1.6):
     - LDZFCategories
     - LDZFCommon
     - Masonry
-  - LDZFAlertDialog/DateDialog (0.1.5):
+  - LDZFAlertDialog/DateDialog (0.1.6):
     - LDZFAlertDialog/BaseDialog
-  - LDZFAlertDialog/MultiChoiceDialog (0.1.5):
+  - LDZFAlertDialog/MultiChoiceDialog (0.1.6):
     - LDZFAlertDialog/BaseDialog
-  - LDZFAlertDialog/SingleChoiceDialog (0.1.5):
+  - LDZFAlertDialog/SingleChoiceDialog (0.1.6):
     - LDZFAlertDialog/BaseDialog
     - LDZFPickerView
   - LDZFBaseCell (0.1.5)
@@ -29,6 +29,7 @@ PODS:
   - LDZFCommon (0.2.4)
   - LDZFFormKit (0.1.2):
     - IQKeyboardManager
+    - LDZFAlertDialog
     - LDZFBaseCell
     - LDZFCategories
     - LDZFCommon
@@ -62,11 +63,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   IQKeyboardManager: 241cc94ccabc9deb8f8bd7d12f00d73288d13ecc
-  LDZFAlertDialog: 306ae89822840bc0d5347693c844261d3b9e7ab8
+  LDZFAlertDialog: b7297b8f858107912c43962593f39cc23ceaaadc
   LDZFBaseCell: c62461d06d9d270ad63e78cacd46467ed5ce38b5
   LDZFCategories: 63f7d9056e4d3715801be2646933bfd575cff497
   LDZFCommon: 8656bb7007c8d4e4f0210bdf3a0fd62d389158b1
-  LDZFFormKit: 925ef8f66dacef99d0cdcc1ab3ef30c3b6258c89
+  LDZFFormKit: 74bb6523c339ec2b77b62732cb4f9251616a2c47
   LDZFPickerView: 81a4c57fb6f596a0a9d38cd3aefb635ae5ac68ad
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30

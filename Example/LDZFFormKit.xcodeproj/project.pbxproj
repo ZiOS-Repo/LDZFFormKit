@@ -26,6 +26,7 @@
 		AF45BC1128647E190060B31C /* FormUIManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = AF45BC1028647E190060B31C /* FormUIManagement.m */; };
 		AF45BC1428647E3F0060B31C /* FormUIMAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF45BC1328647E3F0060B31C /* FormUIMAdapter.m */; };
 		AF45BC1728647FB60060B31C /* QnmFormTemplates.json in Resources */ = {isa = PBXBuildFile; fileRef = AF45BC1628647FB60060B31C /* QnmFormTemplates.json */; };
+		AFAC0F902865BB3500B435AB /* FormUIMEventHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAC0F8F2865BB3500B435AB /* FormUIMEventHandle.m */; };
 		AFEDDB23272560E5000BD770 /* CRJViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEDDB21272560E5000BD770 /* CRJViewModel.m */; };
 		C13B6FC595F24D6EF346A090 /* Pods_LDZFFormKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01799CF77C10C589AF56E2F8 /* Pods_LDZFFormKit_Example.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,8 @@
 		AF45BC1228647E3F0060B31C /* FormUIMAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormUIMAdapter.h; sourceTree = "<group>"; };
 		AF45BC1328647E3F0060B31C /* FormUIMAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormUIMAdapter.m; sourceTree = "<group>"; };
 		AF45BC1628647FB60060B31C /* QnmFormTemplates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QnmFormTemplates.json; sourceTree = "<group>"; };
+		AFAC0F8E2865BB3500B435AB /* FormUIMEventHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormUIMEventHandle.h; sourceTree = "<group>"; };
+		AFAC0F8F2865BB3500B435AB /* FormUIMEventHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormUIMEventHandle.m; sourceTree = "<group>"; };
 		AFEDDB21272560E5000BD770 /* CRJViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRJViewModel.m; sourceTree = "<group>"; };
 		AFEDDB22272560E5000BD770 /* CRJViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRJViewModel.h; sourceTree = "<group>"; };
 		BCDB056462A387AC18113C31 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				AF45BC1028647E190060B31C /* FormUIManagement.m */,
 				AF45BC1228647E3F0060B31C /* FormUIMAdapter.h */,
 				AF45BC1328647E3F0060B31C /* FormUIMAdapter.m */,
+				AFAC0F8E2865BB3500B435AB /* FormUIMEventHandle.h */,
+				AFAC0F8F2865BB3500B435AB /* FormUIMEventHandle.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -414,6 +419,7 @@
 			files = (
 				AFEDDB23272560E5000BD770 /* CRJViewModel.m in Sources */,
 				AF45BC1428647E3F0060B31C /* FormUIMAdapter.m in Sources */,
+				AFAC0F902865BB3500B435AB /* FormUIMEventHandle.m in Sources */,
 				6003F59E195388D20070C39A /* IUAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* IUViewController.m in Sources */,
 				AF45BC1128647E190060B31C /* FormUIManagement.m in Sources */,

@@ -13,9 +13,11 @@
 #import <LDZFFormKit/QnmFormUIManagementHeader.h>
 #import "FormUIManagement.h"
 #import "FormUIMAdapter.h"
+#import "FormUIMEventHandle.h"
 
 @interface IUViewController ()
 @property(nonatomic, strong) FormUIMAdapter *tableAdapter;
+@property(nonatomic, strong) FormUIMEventHandle *eventHandler;
 @end
 
 @implementation IUViewController
@@ -61,8 +63,83 @@
 
 #pragma mark - bindViewModel
 - (void)bindViewModel {
-    NSDictionary *dic = [self readLocalFileWithName:@"QnmFormTemplates"];
-    QnmFormUIModel *model = [QnmFormUIModel yy_modelWithDictionary:dic];
+    //使用JSON加载
+//    NSDictionary *dic = [self readLocalFileWithName:@"QnmFormTemplates"];
+//    QnmFormUIModel *model = [QnmFormUIModel yy_modelWithDictionary:dic];
+
+    
+    
+    //一个个添加
+    NSMutableArray <QnmFormItemModel *> *modules = [NSMutableArray array];
+    [QnmFormItemUtils createT:^(QnmFormItemModel * _Nonnull item) {
+        item.type = QnmFormItemOaKV;
+        item.valueScheme.title = @"姓名";
+        item.valueScheme.propertyName = @"userName";
+        item.valueScheme.value = @"张三";
+        [modules addObject:item];
+    }];
+    [QnmFormItemUtils createT:^(QnmFormItemModel * _Nonnull item) {
+        item.type = QnmFormItemOaDate;
+        item.valueScheme.title = @"出生日期";
+        item.valueScheme.propertyName = @"birthdayDate";
+        item.valueScheme.placeholder = @"请选择";
+        [modules addObject:item];
+    }];
+    [QnmFormItemUtils createT:^(QnmFormItemModel * _Nonnull item) {
+        item.type = QnmFormItemOaSingleChoice;
+        item.valueScheme.title = @"喜好";
+        item.valueScheme.propertyName = @"like";
+        item.valueScheme.placeholder = @"请选择";
+        item.valueScheme.enums = @[@"旅游",@"爬山",@"游泳",@"骑行",@"电竞"];
+        [modules addObject:item];
+    }];
+    [QnmFormItemUtils createT:^(QnmFormItemModel * _Nonnull item) {
+        item.type = QnmFormItemOaSwitch;
+        item.valueScheme.title = @"是否已婚";
+        item.valueScheme.propertyName = @"isYiHun";
+        item.valueScheme.value = @"1";
+        [modules addObject:item];
+    }];
+    [QnmFormItemUtils createT:^(QnmFormItemModel * _Nonnull item) {
+        item.type = QnmFormItemOaTextfiled;
+        item.valueScheme.title = @"住址";
+        item.valueScheme.propertyName = @"address";
+        item.valueScheme.value = @"上海浦东新区张江镇";
+        item.valueScheme.placeholder = @"请输入";
+        [modules addObject:item];
+    }];
+    [QnmFormItemUtils createT:^(QnmFormItemModel * _Nonnull item) {
+        item.type = QnmFormItemOaTextView;
+        item.valueScheme.title = @"反馈建议";
+        item.valueScheme.propertyName = @"feedback";
+        item.valueScheme.value = @"";
+        item.valueScheme.placeholder = @"请输入";
+        [modules addObject:item];
+    }];
+    [QnmFormItemUtils createT:^(QnmFormItemModel * _Nonnull item) {
+        item.type = QnmFormItemOaSlider;
+        item.height = 44;
+        item.mutableHeight = 44;
+        item.valueScheme.title = @"设置阈值";
+        item.valueScheme.propertyName = @"yuzhi";
+        item.valueScheme.minimum = @"0";
+        item.valueScheme.maximum = @"100";
+        item.valueScheme.value = @"";
+        [modules addObject:item];
+    }];
+    
+    [QnmFormItemUtils createT:^(QnmFormItemModel * _Nonnull item) {
+        item.type = QnmFormItemOaSubmit;
+//        item.valueScheme.title = @"反馈建议";
+//        item.valueScheme.propertyName = @"feedback";
+//        item.valueScheme.value = @"";
+//        item.valueScheme.placeholder = @"请输入";
+        [modules addObject:item];
+    }];
+    
+    
+    QnmFormUIModel *model = [QnmFormUIModel yy_modelWithDictionary:@{}];
+    model.modules = modules;
     
     self.recylerView.delegate = self.tableAdapter;
     self.recylerView.dataSource = self.tableAdapter;
@@ -73,9 +150,21 @@
 - (FormUIMAdapter *)tableAdapter {
     if (!_tableAdapter) {
         _tableAdapter = [[FormUIMAdapter alloc] initWithManagerClass:FormUIManagement.class];
+        _tableAdapter.eventDelegate = self.eventHandler;
     }
     return _tableAdapter;
 }
+
+- (FormUIMEventHandle *)eventHandler {
+    if (!_eventHandler) {
+        _eventHandler = [[FormUIMEventHandle alloc] init];
+        _eventHandler.eventHandlerDelegate = self.tableAdapter;
+    }
+    return _eventHandler;
+}
+
+
+
 
 // 读取本地JSON文件
 - (id)readLocalFileWithName:(NSString *)name {

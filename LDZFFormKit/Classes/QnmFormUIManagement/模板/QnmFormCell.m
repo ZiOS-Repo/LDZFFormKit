@@ -48,11 +48,11 @@
 }
 
 - (void)divisionInfoWithModel:(QnmFormItemModel *)model {
-    self.division.backgroundColor = model.uiScheme.qnm_divisionIN.qnm_color;
+    self.division.backgroundColor = model.uiScheme.divisionIN.qnm_color;
     [self.division mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_divisionIN.qnm_insets.left);
-        make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_divisionIN.qnm_insets.right);
-        make.bottom.equalTo(self.contentView).offset(-model.uiScheme.qnm_divisionIN.qnm_insets.bottom);
+        make.left.equalTo(self.contentView).offset(model.uiScheme.divisionIN.qnm_insets.left);
+        make.right.equalTo(self.contentView).offset(-model.uiScheme.divisionIN.qnm_insets.right);
+        make.bottom.equalTo(self.contentView).offset(-model.uiScheme.divisionIN.qnm_insets.bottom);
         make.height.mas_equalTo(PixelOne);
     }];
 }

@@ -14,5 +14,7 @@
 #import "QnmFormUIMBaseAdapter.h"
 #import "QnmFormItemModel.h"
 #import "QnmFormUIModel.h"
+#import "QnmFormItemUtils.h"
+#import "QnmFormConstDefine.h"
 
 #endif /* QnmFormUIManagementHeader_h */

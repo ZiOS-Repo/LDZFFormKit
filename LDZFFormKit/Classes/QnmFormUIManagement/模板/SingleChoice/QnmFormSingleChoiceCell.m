@@ -1,24 +1,28 @@
 //
-//  QnmFormPickerNormalCell.m
+//  QnmFormSingleChoiceCell.m
 //  IQKeyboardManager
 //
-//  Created by zhuyuhui on 2022/6/21.
+//  Created by zhuyuhui on 2022/6/24.
 //
 
-#import "QnmFormPickerNormalCell.h"
+#import "QnmFormSingleChoiceCell.h"
+
 #import <Masonry/Masonry.h>
 #import <LDZFCategories/LDZFCategories.h>
+#import <LDZFAlertDialog/LDZFAlertDialog.h>
 #import "QnmFormUIMTemplateCell+ModelConfigure.h"
 #import "QnmFormItemModel+GetData.h"
+#import "QnmFormUtils.h"
+
 #define degrees_TO_radians(x) (x * M_PI/180.0)
-@interface QnmFormPickerNormalCell()
+@interface QnmFormSingleChoiceCell()
 @property(nonatomic, strong) UILabel *keyLable;
 @property(nonatomic, strong) UILabel *valLable;
 @property(nonatomic, strong) UILabel *placeholdLable;
 @property(nonatomic, strong) UIImageView *extrIcon;
 @end
 
-@implementation QnmFormPickerNormalCell
+@implementation QnmFormSingleChoiceCell
 
 #pragma mark - init & dealloc
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -26,8 +30,8 @@
     if (self) {
         [self setupDefaultSubViews];
         [self setupConstraints];
+        [self qnm_addTapGestureRecognizerWithTarget:self action:@selector(clickSelff)];
     }
-    
     return self;
 }
 
@@ -78,11 +82,11 @@
 
 - (void)keyInfoWithModel:(QnmFormItemModel *)model {
     [self layoutIfNeeded];
-    self.keyLable.font      = model.uiScheme.qnm_titleIN.qnm_font;
-    self.keyLable.textColor = model.uiScheme.qnm_titleIN.qnm_color;
+    self.keyLable.font      = model.uiScheme.titleIN.qnm_font;
+    self.keyLable.textColor = model.uiScheme.titleIN.qnm_color;
     self.keyLable.text      = model.valueScheme.title;
     [self.keyLable sizeToFit];
-    CGFloat widthRatio = model.uiScheme.qnm_titleIN.qnm_widthRatio;
+    CGFloat widthRatio = model.uiScheme.titleIN.qnm_widthRatio;
     CGFloat titleMaxWidth = (self.width - model.uiScheme.qnm_paddingLeft - model.uiScheme.qnm_paddingRight) * widthRatio;
     [self.keyLable mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_paddingLeft);
@@ -93,9 +97,9 @@
 }
 
 - (void)placeholderInfoWithModel:(QnmFormItemModel *)model {
-    CGSize extrIconSize = CGSizeFromString(safeString(model.uiScheme.qnm_iconIN.size));
-    self.placeholdLable.font      = model.uiScheme.qnm_placeholderIN.qnm_font;
-    self.placeholdLable.textColor = model.uiScheme.qnm_placeholderIN.qnm_color;
+    CGSize extrIconSize = CGSizeFromString(safeString(model.uiScheme.iconIN.size));
+    self.placeholdLable.font      = model.uiScheme.placeholderIN.qnm_font;
+    self.placeholdLable.textColor = model.uiScheme.placeholderIN.qnm_color;
     self.placeholdLable.text      = model.valueScheme.placeholder;
     [self.placeholdLable mas_remakeConstraints:^(MASConstraintMaker *make) {
         if (CGSizeIsEmpty(extrIconSize)) {
@@ -109,10 +113,10 @@
 }
 
 - (void)valueInfoWithModel:(QnmFormItemModel *)model {
-    CGSize extrIconSize = CGSizeFromString(safeString(model.uiScheme.qnm_iconIN.size));
-    self.valLable.font      = model.uiScheme.qnm_subtitleIN.qnm_font;
-    self.valLable.textColor = model.uiScheme.qnm_subtitleIN.qnm_color;
-    self.valLable.text      = model.valueScheme.value;
+    CGSize extrIconSize = CGSizeFromString(safeString(model.uiScheme.iconIN.size));
+    self.valLable.font      = model.uiScheme.subtitleIN.qnm_font;
+    self.valLable.textColor = model.uiScheme.subtitleIN.qnm_color;
+    self.valLable.text      = safeString(model.valueScheme.value);
     [self.valLable mas_remakeConstraints:^(MASConstraintMaker *make) {
         if (CGSizeIsEmpty(extrIconSize)) {
             make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);
@@ -125,8 +129,8 @@
 }
 
 - (void)extrIconInfoWithModel:(QnmFormItemModel *)model {
-    CGSize extrIconSize = CGSizeFromString(safeString(model.uiScheme.qnm_iconIN.size));
-    self.extrIcon.image = [self imageNamed:model.uiScheme.qnm_iconIN.url];
+    CGSize extrIconSize = CGSizeFromString(safeString(model.uiScheme.iconIN.size));
+    self.extrIcon.image = [self imageNamed:model.uiScheme.iconIN.url];
     self.extrIcon.transform = CGAffineTransformIdentity;
     self.extrIcon.angle = degrees_TO_radians(90);
     [self.extrIcon mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -135,6 +139,78 @@
         make.size.mas_equalTo(extrIconSize);
     }];
 }
+
+#pragma mark - event
+- (void)clickSelff {
+    if (!self.holdModel.uiScheme.qnm_editable) {
+        return;
+    }
+    kWeakSelf
+    //加载NSString
+    NSMutableArray *datas = [NSMutableArray array];
+    for (id obj in self.holdModel.valueScheme.enums) {
+        if ([obj isKindOfClass:NSString.class]) {
+            [datas qnm_addObj:[NSString stringWithFormat:@"%@",obj]];
+        }
+        else if ([obj isKindOfClass:NSDictionary.class]) {
+            [datas qnm_addObj:[NSString stringWithFormat:@"%@",obj[@"title"]]];
+        }
+    }
+    AlertSingleChoiceDialog *dialog = AlertSingleChoiceDialog.build;
+    dialog.withInfo(@"请选择").withSelectedItem(self.holdModel.valueScheme.value).withShowDatas(datas);
+    [dialog setDidSelectedItems:^(AlertSingleChoiceDialog *dialog, NSArray *items) {
+        kStrongSelf
+        NSString *value = [items componentsJoinedByString:@","];
+        strongSelf.holdModel.valueScheme.value = value;
+        if (strongSelf.reloadOperation) {
+            strongSelf.reloadOperation(1, strongSelf);
+        }
+    }];
+    [self.qnm_viewController presentViewController:dialog animated:NO completion:nil];
+    
+//
+//
+//    //加载NSAttributedString
+//    NSMutableArray *datas = [NSMutableArray array];
+//    for (id obj in self.holdModel.valueScheme.enums) {
+//        if ([obj isKindOfClass:NSString.class]) {
+//            [datas qnm_addObj:[[NSAttributedString alloc] initWithString:safeString(obj) attributes:@{
+//                NSFontAttributeName:[UIFont boldSystemFontOfSize:14],
+//                NSForegroundColorAttributeName:[UIColor systemBlueColor]
+//            }]];
+//        }
+//        else if ([obj isKindOfClass:NSDictionary.class]) {
+//            [datas qnm_addObj:[[NSAttributedString alloc] initWithString:safeString(obj[@"title"]) attributes:@{
+//                NSFontAttributeName:[UIFont boldSystemFontOfSize:14],
+//                NSForegroundColorAttributeName:[UIColor systemBlueColor]
+//            }]];
+//        }
+//    }
+//
+//    NSAttributedString *selectedItem = [[NSAttributedString alloc] initWithString:safeString(self.holdModel.valueScheme.value) attributes:@{
+//        NSFontAttributeName:[UIFont boldSystemFontOfSize:14],
+//        NSForegroundColorAttributeName:[UIColor systemBlueColor]
+//    }];
+//
+//    AlertSingleChoiceDialog *dialog = AlertSingleChoiceDialog.build;
+//    dialog.withInfo(@"请选择").withSelectedItem(selectedItem).withShowDatas(datas);
+//    [dialog setDidSelectedItems:^(AlertSingleChoiceDialog *dialog, NSArray *items) {
+//        kStrongSelf
+//        NSString *stringValue;
+//        if ([items.firstObject isKindOfClass:NSString.class]) {
+//            stringValue = items.firstObject;
+//        } else if ([items.firstObject isKindOfClass:NSAttributedString.class]){
+//            stringValue = [items.firstObject string];
+//        }
+//        strongSelf.holdModel.valueScheme.value = stringValue;
+//        if (strongSelf.reloadOperation) {
+//            strongSelf.reloadOperation(1, strongSelf);
+//        }
+//    }];
+//    [self.qnm_viewController presentViewController:dialog animated:NO completion:nil];
+}
+
+
 
 #pragma mark - 懒加载
 - (UILabel *)keyLable {
@@ -170,3 +246,5 @@
 
 
 @end
+
+

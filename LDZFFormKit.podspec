@@ -45,6 +45,7 @@ TODO: Add long description of the pod here.
   s.dependency 'LDZFCommon'
   s.dependency 'LDZFBaseCell'
   s.dependency 'LDZFCategories'
+  s.dependency 'LDZFAlertDialog'
   s.dependency 'YYText'
   s.dependency 'YYModel'
   s.dependency 'Masonry'

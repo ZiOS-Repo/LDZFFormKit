@@ -103,15 +103,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGFloat)qnm_paddingRight;
 - (UIColor *)qnm_color;
 - (BOOL)qnm_editable;
-- (QnmFormTextUIScheme *)qnm_titleIN;
-- (QnmFormTextUIScheme *)qnm_subtitleIN;
-- (QnmFormTextUIScheme *)qnm_placeholderIN;
-- (QnmFormTextfiledUIScheme *)qnm_textfiledIN;
-- (QnmFormTextViewUIScheme *)qnm_textViewIN;
-- (QnmFormSwitchUIScheme *)qnm_switchIN;
-- (QnmFormSliderUIScheme *)qnm_sliderIN;
-- (QnmFormDivisionUIScheme *)qnm_divisionIN;
-- (QnmFormIconScheme *)qnm_iconIN;
 @end
 
 NS_ASSUME_NONNULL_END

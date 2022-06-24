@@ -22,7 +22,13 @@ typedef void(^QnmFormCellCustomOperation)(NSDictionary *dicInfo, QnmFormUIMTempl
 /**
  cell 刷新Cell事件传递的block
  
- @param operation 操作编号 : 0 刷新 1 隐藏
+ @param operation 操作编号 :
+    0 刷新
+        重走heightForRowAtIndexPath
+ 
+    1 局部刷新Cell
+        重走heightForRowAtIndexPath
+        重走当前cell的configureWithModel
  @param senderCell 当前操作的view对象自身
  */
 typedef void(^QnmFormCellReloadCellOperation)(NSInteger operation, QnmFormUIMTemplateCell *senderCell);

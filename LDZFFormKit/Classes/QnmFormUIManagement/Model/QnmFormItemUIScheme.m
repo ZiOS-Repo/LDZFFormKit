@@ -150,7 +150,41 @@ NSString * Holder(NSString * org,NSString * placeholder){
     };
 }
 
-
+// JSON 转为 Model 完成后，该方法会被调用，返回false该model会被忽略
+// 同时可以在该model中做一些，转换不能实现的操作，如NSDate类型转换
+- (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
+    if (![dic.allKeys containsObject:@"titleIN"]) {
+        self.titleIN = [QnmFormTextUIScheme yy_modelWithDictionary:@{}];
+    }
+    if (![dic.allKeys containsObject:@"subtitleIN"]) {
+        self.subtitleIN = [QnmFormTextUIScheme yy_modelWithDictionary:@{}];
+    }
+    if (![dic.allKeys containsObject:@"placeholderIN"]) {
+        self.placeholderIN = [QnmFormTextUIScheme yy_modelWithDictionary:@{@"color":@"#66333333",@"font":@"14"}];
+    }
+    if (![dic.allKeys containsObject:@"textfiledIN"]) {
+        self.textfiledIN = [QnmFormTextfiledUIScheme yy_modelWithDictionary:@{}];
+    }
+    if (![dic.allKeys containsObject:@"textViewIN"]) {
+        self.textViewIN = [QnmFormTextViewUIScheme yy_modelWithDictionary:@{}];
+    }
+    if (![dic.allKeys containsObject:@"switchIN"]) {
+        self.switchIN = [QnmFormSwitchUIScheme yy_modelWithDictionary:@{}];
+    }
+    if (![dic.allKeys containsObject:@"sliderIN"]) {
+        self.sliderIN = [QnmFormSliderUIScheme yy_modelWithDictionary:@{}];
+    }
+    if (![dic.allKeys containsObject:@"divisionIN"]) {
+        self.divisionIN = [QnmFormDivisionUIScheme yy_modelWithDictionary:@{}];
+    }
+    if (![dic.allKeys containsObject:@"valueScheme"]) {
+        self.iconIN = [QnmFormIconScheme yy_modelWithDictionary:@{}];
+    }
+    return YES;
+}
+// Model 转为 JSON 完成后，该方法会被调用，返回false该model会被忽略
+// 同时可以在该model中做一些，转换不能实现的操作，如NSDate类型转换
+//- (BOOL)modelCustomTransformToDictionary:(NSMutableDictionary *)dic;
 
 
 - (CGFloat)qnm_paddingLeft {
@@ -167,33 +201,5 @@ NSString * Holder(NSString * org,NSString * placeholder){
 
 - (BOOL)qnm_editable {
     return [Holder(self.editable,@"1") isEqualToString:@"1"];
-}
-
-- (QnmFormTextUIScheme *)qnm_titleIN {
-    return self.titleIN ? self.titleIN : [QnmFormTextUIScheme new];
-}
-- (QnmFormTextUIScheme *)qnm_subtitleIN {
-    return self.titleIN ? self.subtitleIN : [QnmFormTextUIScheme new];
-}
-- (QnmFormTextUIScheme *)qnm_placeholderIN {
-    return self.titleIN ? self.placeholderIN : [QnmFormTextUIScheme new];
-}
-- (QnmFormTextfiledUIScheme *)qnm_textfiledIN {
-    return self.textfiledIN ? self.textfiledIN : [QnmFormTextfiledUIScheme new];
-}
-- (QnmFormTextViewUIScheme *)qnm_textViewIN {
-    return self.textViewIN ? self.textViewIN : [QnmFormTextViewUIScheme new];
-}
-- (QnmFormSwitchUIScheme *)qnm_switchIN {
-    return self.switchIN ? self.switchIN : [QnmFormSwitchUIScheme new];
-}
-- (QnmFormSliderUIScheme *)qnm_sliderIN {
-    return self.sliderIN ? self.sliderIN : [QnmFormSliderUIScheme new];
-}
-- (QnmFormDivisionUIScheme *)qnm_divisionIN {
-    return self.divisionIN ? self.divisionIN : [QnmFormDivisionUIScheme new];
-}
-- (QnmFormIconScheme *)qnm_iconIN {
-    return self.iconIN ? self.iconIN : [QnmFormIconScheme new];
 }
 @end

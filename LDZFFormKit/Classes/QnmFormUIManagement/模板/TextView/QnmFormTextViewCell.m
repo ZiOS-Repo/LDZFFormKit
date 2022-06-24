@@ -59,8 +59,8 @@
 
 - (void)keyInfoWithModel:(QnmFormItemModel *)model {
     [self layoutIfNeeded];
-    self.keyLable.font      = model.uiScheme.qnm_titleIN.qnm_font;
-    self.keyLable.textColor = model.uiScheme.qnm_titleIN.qnm_color;
+    self.keyLable.font      = model.uiScheme.titleIN.qnm_font;
+    self.keyLable.textColor = model.uiScheme.titleIN.qnm_color;
     self.keyLable.text      = model.valueScheme.title;
     [self.keyLable mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(5);
@@ -70,13 +70,13 @@
 }
 
 - (void)valueInfoWithModel:(QnmFormItemModel *)model {
-    self.valTextView.font               = model.uiScheme.qnm_textViewIN.qnm_font;
-    self.valTextView.textColor          = model.uiScheme.qnm_textViewIN.qnm_color;
-    self.valTextView.keyboardType       = model.uiScheme.qnm_textViewIN.qnm_keyboardType;
-    self.valTextView.returnKeyType      = model.uiScheme.qnm_textViewIN.qnm_returnKeyType;
-    self.valTextView.placeholderFont    = model.uiScheme.qnm_textViewIN.qnm_placeholderFont;
+    self.valTextView.font               = model.uiScheme.textViewIN.qnm_font;
+    self.valTextView.textColor          = model.uiScheme.textViewIN.qnm_color;
+    self.valTextView.keyboardType       = model.uiScheme.textViewIN.qnm_keyboardType;
+    self.valTextView.returnKeyType      = model.uiScheme.textViewIN.qnm_returnKeyType;
+    self.valTextView.placeholderFont    = model.uiScheme.textViewIN.qnm_placeholderFont;
     self.valTextView.editable           = model.uiScheme.qnm_editable;
-    self.valTextView.text = model.valueScheme.value;
+    self.valTextView.text               = model.valueScheme.value;
     self.valTextView.placeholderText    = model.valueScheme.placeholder;
     [self.valTextView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.keyLable.mas_bottom).offset(5);

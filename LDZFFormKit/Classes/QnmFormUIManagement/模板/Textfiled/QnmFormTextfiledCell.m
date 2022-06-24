@@ -57,11 +57,11 @@
 
 - (void)keyInfoWithModel:(QnmFormItemModel *)model {
     [self layoutIfNeeded];
-    self.keyLable.font      = model.uiScheme.qnm_titleIN.qnm_font;
-    self.keyLable.textColor = model.uiScheme.qnm_titleIN.qnm_color;
+    self.keyLable.font      = model.uiScheme.titleIN.qnm_font;
+    self.keyLable.textColor = model.uiScheme.titleIN.qnm_color;
     self.keyLable.text      = model.valueScheme.title;
     [self.keyLable sizeToFit];
-    CGFloat widthRatio = model.uiScheme.qnm_titleIN.qnm_widthRatio;
+    CGFloat widthRatio = model.uiScheme.titleIN.qnm_widthRatio;
     CGFloat titleMaxWidth = (self.width - model.uiScheme.qnm_paddingLeft - model.uiScheme.qnm_paddingRight) * widthRatio;
     [self.keyLable mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_paddingLeft);
@@ -73,11 +73,11 @@
 
 - (void)valueInfoWithModel:(QnmFormItemModel *)model {
     self.valTextfiled.text = model.valueScheme.value;
-    self.valTextfiled.placeholder   = model.valueScheme.placeholder;
-    self.valTextfiled.font          = model.uiScheme.qnm_textfiledIN.qnm_font;
-    self.valTextfiled.textColor     = model.uiScheme.qnm_textfiledIN.qnm_color;
-    self.valTextfiled.keyboardType  = model.uiScheme.qnm_textfiledIN.qnm_keyboardType;
-    self.valTextfiled.returnKeyType = model.uiScheme.qnm_textfiledIN.qnm_returnKeyType;
+    self.valTextfiled.attributedPlaceholder = [[NSAttributedString alloc] initWithString:model.valueScheme.placeholder attributes:@{NSForegroundColorAttributeName:model.uiScheme.textfiledIN.qnm_placeholderTextColor,NSFontAttributeName:model.uiScheme.textfiledIN.qnm_placeholderFont}];
+    self.valTextfiled.font          = model.uiScheme.textfiledIN.qnm_font;
+    self.valTextfiled.textColor     = model.uiScheme.textfiledIN.qnm_color;
+    self.valTextfiled.keyboardType  = model.uiScheme.textfiledIN.qnm_keyboardType;
+    self.valTextfiled.returnKeyType = model.uiScheme.textfiledIN.qnm_returnKeyType;
     self.valTextfiled.enabled       = model.uiScheme.qnm_editable;
     [self.valTextfiled mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);

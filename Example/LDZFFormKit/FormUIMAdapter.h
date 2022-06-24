@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FormUIMAdapter : QnmFormUIMBaseAdapter<UITableViewDelegate>
+@interface FormUIMAdapter : QnmFormUIMBaseAdapter<UITableViewDelegate,QnmFormUIMEventProtocol>
 
 @end
 

@@ -55,11 +55,11 @@
 
 - (void)keyInfoWithModel:(QnmFormItemModel *)model {
     [self layoutIfNeeded];
-    self.keyLable.font      = model.uiScheme.qnm_titleIN.qnm_font;
-    self.keyLable.textColor = model.uiScheme.qnm_titleIN.qnm_color;
+    self.keyLable.font      = model.uiScheme.titleIN.qnm_font;
+    self.keyLable.textColor = model.uiScheme.titleIN.qnm_color;
     self.keyLable.text      = model.valueScheme.title;
     [self.keyLable sizeToFit];
-    CGFloat widthRatio = model.uiScheme.qnm_titleIN.qnm_widthRatio;
+    CGFloat widthRatio = model.uiScheme.titleIN.qnm_widthRatio;
     CGFloat titleMaxWidth = (self.width - model.uiScheme.qnm_paddingLeft - model.uiScheme.qnm_paddingRight) * widthRatio;
     [self.keyLable mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_paddingLeft);
@@ -69,8 +69,8 @@
 }
 
 - (void)valueInfoWithModel:(QnmFormItemModel *)model {
-    self.valLable.font      = model.uiScheme.qnm_subtitleIN.qnm_font;
-    self.valLable.textColor = model.uiScheme.qnm_subtitleIN.qnm_color;
+    self.valLable.font      = model.uiScheme.subtitleIN.qnm_font;
+    self.valLable.textColor = model.uiScheme.subtitleIN.qnm_color;
     self.valLable.text      = model.valueScheme.value;
     [self.valLable mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);

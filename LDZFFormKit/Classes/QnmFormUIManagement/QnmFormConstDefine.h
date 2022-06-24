@@ -8,5 +8,17 @@
 #ifndef QnmFormConstDefine_h
 #define QnmFormConstDefine_h
 
+#define QnmFormItemOaKV                 @"KV"
+#define QnmFormItemOaDate               @"Date"
+#define QnmFormItemOaSlider             @"Slider"
+#define QnmFormItemOaSwitch             @"Switch"
+#define QnmFormItemOaTextView           @"TextView"
+#define QnmFormItemOaTextfiled          @"Textfiled"
+#define QnmFormItemOaSingleChoice       @"SingleChoice"
+#define QnmFormItemOaMultiChoice        @"MultiChoice"
+
+#define QnmFormItemOaSubmit             @"Submit"
+
+
 
 #endif /* QnmFormConstDefine_h */

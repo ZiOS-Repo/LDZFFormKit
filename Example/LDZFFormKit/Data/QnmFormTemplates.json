@@ -44,7 +44,7 @@
             "type":"KV",
             "valueScheme": {
                 "type":"string",
-                "title":"类型：PickerNormal",
+                "title":"类型：Date",
             },
             "uiScheme": {
                 "titleIN":{
@@ -55,29 +55,37 @@
         },
         {
             "id":"",
-            "type":"PickerNormal",
+            "type":"Date",
             "valueScheme": {
                 "type":"string",
-                "title":"姓名",
+                "title":"选择驾驶证申请日期",
                 "propertyName":"titleName",
                 "placeholder":"请选择",
+                "dateFormat":"yyyy-MM-dd",
             },
             "uiScheme": {
-                "extrIconUrl":"arrow_up",
-                "extrIconSize":"{15,15}"
+                "iconIN":{
+                    "url":"arrow_up",
+                    "size":"{15,15}"
+                }
             },
         },
         {
             "id":"",
-            "type":"PickerNormal",
+            "type":"Date",
             "valueScheme": {
                 "type":"string",
-                "title":"姓名",
+                "title":"选择身份证申请日期",
                 "propertyName":"titleName",
-                "value":"阿罕默德*德易么",
+                "placeholder":"请选择",
+                "value":"2022-07-50",
+                "dateFormat":"yyyy-MM-dd HH:mm:ss",
             },
             "uiScheme": {
-
+                "iconIN":{
+                    "url":"arrow_up",
+                    "size":"{15,15}"
+                }
             },
         },
         {
