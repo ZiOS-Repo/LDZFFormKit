@@ -7,6 +7,7 @@
 
 #import "QnmFormPlusReduceCell.h"
 #import <Masonry/Masonry.h>
+#import <LDZFCommon/LDZFCommon.h>
 #import <LDZFCategories/LDZFCategories.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "QnmFormUIMTemplateCell+ModelConfigure.h"
@@ -40,21 +41,21 @@
 
 - (void)setupConstraints {
     [self.keyLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.keyLable.superview).offset(15);
-        make.centerY.equalTo(self.keyLable.superview).offset(0);
+        make.left.mas_offset(15);
+        make.centerY.mas_offset(0);
     }];
     [self.plusBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.plusBtn.superview).offset(-18);
-        make.centerY.equalTo(self.plusBtn.superview).offset(0);
+        make.right.mas_offset(-18);
+        make.centerY.mas_offset(0);
     }];
     [self.valTextfiled mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.plusBtn.mas_left).offset(-8);
-        make.centerY.equalTo(self.valTextfiled.superview).offset(0);
         make.width.mas_greaterThanOrEqualTo(50);
+        make.centerY.mas_offset(0);
     }];
     [self.reduceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.valTextfiled.mas_left).offset(-8);
-        make.centerY.equalTo(self.reduceBtn.superview).offset(0);
+        make.centerY.mas_offset(0);
     }];
 }
 
@@ -73,11 +74,11 @@
     self.keyLable.text      = model.valueScheme.title;
     [self.keyLable sizeToFit];
     CGFloat widthRatio = model.uiScheme.titleIN.qnm_widthRatio;
-    CGFloat titleMaxWidth = (self.width - model.uiScheme.qnm_paddingLeft - model.uiScheme.qnm_paddingRight) * widthRatio;
+    CGFloat titleMaxWidth = (self.qmui_width - model.uiScheme.qnm_paddingLeft - model.uiScheme.qnm_paddingRight) * widthRatio;
     [self.keyLable mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_paddingLeft);
-        make.centerY.equalTo(self.contentView).offset(0);
-        make.width.mas_equalTo(MIN(titleMaxWidth, self.keyLable.width));
+        make.left.mas_offset(model.uiScheme.qnm_paddingLeft);
+        make.width.mas_equalTo(MIN(titleMaxWidth, self.keyLable.qmui_width));
+        make.centerY.mas_offset(0);
     }];
 }
 
@@ -90,9 +91,9 @@
     self.valTextfiled.returnKeyType = model.uiScheme.plusReduceIN.qnm_returnKeyType;
     self.valTextfiled.enabled       = model.uiScheme.qnm_editable;
     [self.valTextfiled mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);
-        make.top.bottom.equalTo(self.contentView).offset(0);
         make.left.equalTo(self.keyLable.mas_right).offset(10);
+        make.right.mas_offset(-model.uiScheme.qnm_paddingRight);
+        make.top.bottom.mas_offset(0);
     }];
 
         
@@ -100,12 +101,12 @@
     self.plusBtn.enabled    = model.uiScheme.plusReduceIN.qnm_plusEnable;
     [self.plusBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.plusBtn.superview).offset(0);
-        make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);
+        make.right.mas_offset(-model.uiScheme.qnm_paddingRight);
     }];
     [self.valTextfiled mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.plusBtn.mas_left).offset(-8);
-        make.centerY.equalTo(self.valTextfiled.superview).offset(0);
         make.width.mas_greaterThanOrEqualTo(model.uiScheme.plusReduceIN.qnm_inputBoxWidth);
+        make.centerY.equalTo(self.valTextfiled.superview).offset(0);
     }];
 
 }

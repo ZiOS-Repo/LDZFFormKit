@@ -1,6 +1,6 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/LDZFFormKit
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager" "${PODS_CONFIGURATION_BUILD_DIR}/LDZFAlertDialog" "${PODS_CONFIGURATION_BUILD_DIR}/LDZFCategories" "${PODS_CONFIGURATION_BUILD_DIR}/LDZFCommon" "${PODS_CONFIGURATION_BUILD_DIR}/LDZFPickerView" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/YYModel" "${PODS_CONFIGURATION_BUILD_DIR}/YYText"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager" "${PODS_CONFIGURATION_BUILD_DIR}/LDZFAlertDialog" "${PODS_CONFIGURATION_BUILD_DIR}/LDZFCategories" "${PODS_CONFIGURATION_BUILD_DIR}/LDZFCommon" "${PODS_CONFIGURATION_BUILD_DIR}/LDZFPickerView" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/QMUIKit" "${PODS_CONFIGURATION_BUILD_DIR}/YYModel" "${PODS_CONFIGURATION_BUILD_DIR}/YYText"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 OTHER_LDFLAGS = $(inherited) -framework "Accelerate" -framework "CoreFoundation" -framework "CoreGraphics" -framework "CoreText" -framework "Foundation" -framework "IQKeyboardManager" -framework "LDZFAlertDialog" -framework "LDZFCategories" -framework "LDZFCommon" -framework "Masonry" -framework "MobileCoreServices" -framework "QuartzCore" -framework "UIKit" -framework "YYModel" -framework "YYText"
 PODS_BUILD_DIR = ${BUILD_DIR}

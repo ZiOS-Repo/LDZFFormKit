@@ -7,6 +7,7 @@
 
 #import "QnmFormCell.h"
 #import <Masonry/Masonry.h>
+#import <LDZFCommon/LDZFCommon.h>
 #import <LDZFCategories/LDZFCategories.h>
 #import "QnmFormUIMTemplateCell+ModelConfigure.h"
 #import "QnmFormItemModel+GetData.h"
@@ -33,9 +34,9 @@
 
 - (void)_setupConstraints {
     [self.division mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(15);
-        make.right.equalTo(self.contentView).offset(-15);
-        make.bottom.equalTo(self.contentView).offset(0);
+        make.left.mas_offset(15);
+        make.right.mas_offset(-15);
+        make.bottom.mas_offset(0);
         make.height.mas_equalTo(PixelOne);
     }];
 }
@@ -50,9 +51,9 @@
 - (void)divisionInfoWithModel:(QnmFormItemModel *)model {
     self.division.backgroundColor = model.uiScheme.divisionIN.qnm_color;
     [self.division mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(model.uiScheme.divisionIN.qnm_insets.left);
-        make.right.equalTo(self.contentView).offset(-model.uiScheme.divisionIN.qnm_insets.right);
-        make.bottom.equalTo(self.contentView).offset(-model.uiScheme.divisionIN.qnm_insets.bottom);
+        make.left.mas_offset(model.uiScheme.divisionIN.qnm_insets.left);
+        make.right.mas_offset(-model.uiScheme.divisionIN.qnm_insets.right);
+        make.bottom.mas_offset(-model.uiScheme.divisionIN.qnm_insets.bottom);
         make.height.mas_equalTo(PixelOne);
     }];
 }

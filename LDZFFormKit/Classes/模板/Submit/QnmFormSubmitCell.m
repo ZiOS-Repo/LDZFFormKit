@@ -7,6 +7,7 @@
 
 #import "QnmFormSubmitCell.h"
 #import <Masonry/Masonry.h>
+#import <LDZFCommon/LDZFCommon.h>
 #import <LDZFCategories/LDZFCategories.h>
 #import "QnmFormUIMTemplateCell+ModelConfigure.h"
 #import "QnmFormItemModel+GetData.h"
@@ -32,10 +33,10 @@
 
 - (void)setupConstraints {
     [self.submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(15);
-        make.right.equalTo(self.contentView).offset(-15);
-        make.top.equalTo(self.contentView).offset(5);
-        make.bottom.equalTo(self.contentView).offset(-5);
+        make.top.mas_offset(5);
+        make.left.mas_offset(15);
+        make.right.mas_offset(-15);
+        make.bottom.mas_offset(-5);
     }];
 }
 
@@ -64,7 +65,7 @@
         _submitBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         [_submitBtn setTitle:@"提交" forState:UIControlStateNormal];
         [_submitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_submitBtn addTarget:self action:@selector(clickSelff)];
+        [_submitBtn addTarget:self action:@selector(clickSelff) forControlEvents:UIControlEventTouchUpInside];
     }
     return _submitBtn;
 }

@@ -8,6 +8,7 @@
 #import "QnmFormTextViewCell.h"
 #import <YYText/YYText.h>
 #import <Masonry/Masonry.h>
+#import <LDZFCommon/LDZFCommon.h>
 #import <LDZFCategories/LDZFCategories.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "QnmFormUIMTemplateCell+ModelConfigure.h"
@@ -38,14 +39,14 @@
 
 - (void)setupConstraints {
     [self.keyLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.keyLable.superview).offset(15);
-        make.top.equalTo(self.keyLable.superview).offset(10);
+        make.top.mas_offset(10);
+        make.left.mas_offset(15);
     }];
     [self.valTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.valTextView.superview).offset(16);
-        make.left.equalTo(self.valTextView.superview).offset(18);
-        make.right.equalTo(self.valTextView.superview).offset(-18);
-        make.bottom.equalTo(self.valTextView.superview).offset(-16);
+        make.top.mas_offset(16);
+        make.left.mas_offset(18);
+        make.right.mas_offset(-18);
+        make.bottom.mas_offset(-16);
     }];
 }
 
@@ -63,9 +64,9 @@
     self.keyLable.textColor = model.uiScheme.titleIN.qnm_color;
     self.keyLable.text      = model.valueScheme.title;
     [self.keyLable mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(5);
-        make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_paddingLeft);
-        make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);
+        make.top.mas_offset(5);
+        make.left.mas_offset(model.uiScheme.qnm_paddingLeft);
+        make.right.mas_offset(-model.uiScheme.qnm_paddingRight);
     }];
 }
 
@@ -80,9 +81,9 @@
     self.valTextView.placeholderText    = model.valueScheme.placeholder;
     [self.valTextView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.keyLable.mas_bottom).offset(5);
-        make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_paddingLeft);
-        make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);
-        make.bottom.equalTo(self.contentView).offset(-5);
+        make.left.mas_offset(model.uiScheme.qnm_paddingLeft);
+        make.right.mas_offset(-model.uiScheme.qnm_paddingRight);
+        make.bottom.mas_offset(-5);
     }];
 }
 

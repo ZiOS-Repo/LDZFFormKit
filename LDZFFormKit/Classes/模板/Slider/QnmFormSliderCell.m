@@ -9,6 +9,7 @@
 
 #import <YYText/YYText.h>
 #import <Masonry/Masonry.h>
+#import <LDZFCommon/LDZFCommon.h>
 #import <LDZFCategories/LDZFCategories.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "QnmFormUIMTemplateCell+ModelConfigure.h"
@@ -46,23 +47,23 @@
 
 - (void)setupConstraints {
     [self.keyLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.keyLable.superview).offset(15);
-        make.top.equalTo(self.keyLable.superview).offset(10);
+        make.top.mas_offset(10);
+        make.left.mas_offset(15);
     }];
     [self.valLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.valLable.superview).offset(-15);
-        make.centerY.equalTo(self.valLable.superview).offset(0);
-        make.left.equalTo(self.valLable.superview).offset(150);
+        make.left.mas_offset(150);
+        make.right.mas_offset(-15);
+        make.centerY.mas_offset(0);
     }];
     [self.extrIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.extrIcon.superview).offset(-15);
-        make.centerY.equalTo(self.extrIcon.superview).offset(0);
+        make.right.mas_offset(-15);
+        make.centerY.mas_offset(0);
     }];
     [self.valSlider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.valSlider.superview).offset(16);
-        make.left.equalTo(self.valSlider.superview).offset(18);
-        make.right.equalTo(self.valSlider.superview).offset(-18);
-        make.bottom.equalTo(self.valSlider.superview).offset(-16);
+        make.top.mas_offset(16);
+        make.left.mas_offset(18);
+        make.right.mas_offset(-18);
+        make.bottom.mas_offset(-16);
     }];
 }
 
@@ -83,11 +84,11 @@
     self.keyLable.text      = model.valueScheme.title;
     [self.keyLable sizeToFit];
     CGFloat widthRatio = model.uiScheme.titleIN.qnm_widthRatio;
-    CGFloat titleMaxWidth = (self.width - model.uiScheme.qnm_paddingLeft - model.uiScheme.qnm_paddingRight) * widthRatio;
+    CGFloat titleMaxWidth = (self.qmui_width - model.uiScheme.qnm_paddingLeft - model.uiScheme.qnm_paddingRight) * widthRatio;
     [self.keyLable mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(0);
-        make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_paddingLeft);
-        make.width.mas_equalTo(MIN(titleMaxWidth, self.keyLable.width));
+        make.top.mas_offset(0);
+        make.left.mas_offset(model.uiScheme.qnm_paddingLeft);
+        make.width.mas_equalTo(MIN(titleMaxWidth, self.keyLable.qmui_width));
         make.height.mas_equalTo(model.height);
     }];
 }
@@ -97,9 +98,9 @@
     self.valLable.textColor = model.uiScheme.subtitleIN.qnm_color;
     self.valLable.text      = safeString(model.valueScheme.value);
     [self.valLable mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(0);
-        make.right.equalTo(self.extrIcon.mas_left).offset(0);
+        make.top.mas_offset(0);
         make.left.equalTo(self.keyLable.mas_right).offset(10);
+        make.right.equalTo(self.extrIcon.mas_left).offset(0);
         make.height.mas_equalTo(model.height);
     }];
 }
@@ -108,9 +109,9 @@
     CGSize extrIconSize = CGSizeMake(22, 22);
     self.extrIcon.image = model.ifExpand ? [self imageNamed:@"arrow_up"] : [self imageNamed:@"arrow_down"];
     [self.extrIcon mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);
-        make.centerY.equalTo(self.keyLable.mas_centerY).offset(0);
         make.size.mas_equalTo(extrIconSize);
+        make.right.mas_offset(-model.uiScheme.qnm_paddingRight);
+        make.centerY.equalTo(self.keyLable.mas_centerY).offset(0);
     }];
 }
 
@@ -125,9 +126,9 @@
     self.valSlider.maximumValue = [model.valueScheme.maximum floatValue];
     self.valSlider.value        = [model.valueScheme.value floatValue];
     [self.valSlider mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(model.height);
-        make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_paddingLeft);
-        make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);
+        make.top.mas_offset(model.height);
+        make.left.mas_offset(model.uiScheme.qnm_paddingLeft);
+        make.right.mas_offset(-model.uiScheme.qnm_paddingRight);
         make.height.mas_equalTo(model.mutableHeight);
     }];
 }

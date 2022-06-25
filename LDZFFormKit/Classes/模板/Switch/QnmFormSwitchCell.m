@@ -7,6 +7,7 @@
 
 #import "QnmFormSwitchCell.h"
 #import <Masonry/Masonry.h>
+#import <LDZFCommon/LDZFCommon.h>
 #import <LDZFCategories/LDZFCategories.h>
 #import "QnmFormUIMTemplateCell+ModelConfigure.h"
 #import "QnmFormItemModel+GetData.h"
@@ -35,12 +36,12 @@
 
 - (void)setupConstraints {
     [self.keyLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.keyLable.superview).offset(15);
-        make.centerY.equalTo(self.keyLable.superview).offset(0);
+        make.left.mas_offset(15);
+        make.centerY.mas_offset(0);
     }];
     [self.valSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.valSwitch.superview).offset(-18);
-        make.centerY.equalTo(self.valSwitch.superview).offset(0);
+        make.right.mas_offset(-15);
+        make.centerY.mas_offset(0);
     }];
 }
 
@@ -59,11 +60,11 @@
     self.keyLable.text      = model.valueScheme.title;
     [self.keyLable sizeToFit];
     CGFloat widthRatio = model.uiScheme.titleIN.qnm_widthRatio;
-    CGFloat titleMaxWidth = (self.width - model.uiScheme.qnm_paddingLeft - model.uiScheme.qnm_paddingRight) * widthRatio;
+    CGFloat titleMaxWidth = (self.qmui_width - model.uiScheme.qnm_paddingLeft - model.uiScheme.qnm_paddingRight) * widthRatio;
     [self.keyLable mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(model.uiScheme.qnm_paddingLeft);
-        make.centerY.equalTo(self.contentView).offset(0);
-        make.width.mas_equalTo(MIN(titleMaxWidth, self.keyLable.width));
+        make.left.mas_offset(model.uiScheme.qnm_paddingLeft);
+        make.width.mas_equalTo(MIN(titleMaxWidth, self.keyLable.qmui_width));
+        make.centerY.mas_offset(0);
     }];
 }
 
@@ -71,8 +72,8 @@
     self.valSwitch.on = [model.valueScheme.value isEqualToString:@"1"];
     self.valSwitch.enabled = model.uiScheme.qnm_editable;
     [self.valSwitch mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView).offset(-model.uiScheme.qnm_paddingRight);
-        make.centerY.equalTo(self.contentView).offset(0);
+        make.right.mas_offset(-model.uiScheme.qnm_paddingRight);
+        make.centerY.mas_offset(0);
     }];
 }
 
