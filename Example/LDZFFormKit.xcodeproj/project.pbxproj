@@ -27,7 +27,6 @@
 		AF45BC1428647E3F0060B31C /* FormUIMAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF45BC1328647E3F0060B31C /* FormUIMAdapter.m */; };
 		AF45BC1728647FB60060B31C /* QnmFormTemplates.json in Resources */ = {isa = PBXBuildFile; fileRef = AF45BC1628647FB60060B31C /* QnmFormTemplates.json */; };
 		AFAC0F902865BB3500B435AB /* FormUIMEventHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAC0F8F2865BB3500B435AB /* FormUIMEventHandle.m */; };
-		AFEDDB23272560E5000BD770 /* CRJViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEDDB21272560E5000BD770 /* CRJViewModel.m */; };
 		C13B6FC595F24D6EF346A090 /* Pods_LDZFFormKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01799CF77C10C589AF56E2F8 /* Pods_LDZFFormKit_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +75,6 @@
 		AF45BC1628647FB60060B31C /* QnmFormTemplates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QnmFormTemplates.json; sourceTree = "<group>"; };
 		AFAC0F8E2865BB3500B435AB /* FormUIMEventHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FormUIMEventHandle.h; sourceTree = "<group>"; };
 		AFAC0F8F2865BB3500B435AB /* FormUIMEventHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormUIMEventHandle.m; sourceTree = "<group>"; };
-		AFEDDB21272560E5000BD770 /* CRJViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRJViewModel.m; sourceTree = "<group>"; };
-		AFEDDB22272560E5000BD770 /* CRJViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRJViewModel.h; sourceTree = "<group>"; };
 		BCDB056462A387AC18113C31 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E82F1DF1A38729D961A8538E /* Pods-LDZFFormKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDZFFormKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-LDZFFormKit_Tests/Pods-LDZFFormKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FBD046592BA4939210C5A479 /* LDZFFormKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LDZFFormKit.podspec; path = ../LDZFFormKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -147,8 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				AF45BC1528647FB60060B31C /* Data */,
-				AFEDDB22272560E5000BD770 /* CRJViewModel.h */,
-				AFEDDB21272560E5000BD770 /* CRJViewModel.m */,
 				6003F59C195388D20070C39A /* IUAppDelegate.h */,
 				6003F59D195388D20070C39A /* IUAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -361,7 +356,6 @@
 				"${PODS_ROOT}/Target Support Files/Pods-LDZFFormKit_Example/Pods-LDZFFormKit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFAlertDialog/LDZFAlertDialog.framework",
-				"${BUILT_PRODUCTS_DIR}/LDZFBaseCell/LDZFBaseCell.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFCategories/LDZFCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFCommon/LDZFCommon.framework",
 				"${BUILT_PRODUCTS_DIR}/LDZFFormKit/LDZFFormKit.framework",
@@ -374,7 +368,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFAlertDialog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFBaseCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFCommon.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDZFFormKit.framework",
@@ -417,7 +410,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFEDDB23272560E5000BD770 /* CRJViewModel.m in Sources */,
 				AF45BC1428647E3F0060B31C /* FormUIMAdapter.m in Sources */,
 				AFAC0F902865BB3500B435AB /* FormUIMEventHandle.m in Sources */,
 				6003F59E195388D20070C39A /* IUAppDelegate.m in Sources */,
